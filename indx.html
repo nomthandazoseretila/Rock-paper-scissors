@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Rock • Paper • Scissors</h1>
+
+    <p class="subtitle">
+        First player to reach 10 points wins the match.
+    </p>
+
+    <p class="goal">🏆 Goal: 10 Wins</p>
+
+    <div class="scoreboard">
+
+        <div>
+            <h3>YOU</h3>
+            <span id="playerScore">0</span>
+        </div>
+
+        <div>
+            <h3>TIES</h3>
+            <span id="ties">0</span>
+        </div>
+
+        <div>
+            <h3>COMPUTER</h3>
+            <span id="computerScore">0</span>
+        </div>
+
+    </div>
+
+    <div class="choices">
+
+        <div class="card" onclick="playGame('rock')">
+            <div class="circle"><img src="images/rock.png" alt="Rock"></div>
+            <h2>ROCK</h2>
+            <p>Crushes Scissors</p>
+        </div>
+
+        <div class="card" onclick="playGame('paper')">
+            <div class="circle"><img src="images/paper.png" alt="Paper"></div>
+            <h2>PAPER</h2>
+            <p>Covers Rock</p>
+        </div>
+
+        <div class="card" onclick="playGame('scissors')">
+            <div class="circle"><img src="images/scissors.png" alt="Scissors"></div>
+            <h2>SCISSORS</h2>
+            <p>Cuts Paper</p>
+        </div>
+
+    </div>
+
+    <div class="result-box">
+
+        <div class="player-choice">
+            <h4>YOU</h4> 
+            <img id="playerMove" src="images/question.png" alt="">
+        </div>
+
+        <div class="result">
+            <h2 id="resultText">Make Your Move</h2>
+        </div>
+
+        <div class="computer-choice">
+            <h4>COMPUTER</h4>
+            <img id="computerMove" src="images/question.png" alt="">
+        </div>
+
+    </div>
+
+    <button onclick="newMatch()">NEW MATCH</button>
+
+</div>
+
+<audio id="winSound" src="sounds/win.mp3"></audio>
+<audio id="loseSound" src="sounds/lose.mp3"></audio>
+<audio id="rockSound" src="sounds/rock.mp3"></audio>
+<audio id="paperSound" src="sounds/paper.mp3"></audio>
+<audio id="scissorsSound" src="sounds/scissors.mp3"></audio>
+<audio id="hoverSound" src="sounds/hover.mp3"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+
+
+<footer>
+  <div>
+    
+                 
+      <br /> 
+      <hr /> 
+      <br /> 
+      <h4 className="home-footer">Copyright © 2026 Nomthandazo</h4>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
