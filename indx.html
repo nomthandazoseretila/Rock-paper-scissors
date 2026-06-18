@@ -11,11 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<div id="themeBtn" onclick="toggleTheme()">
+    🌙
+</div>
 <div class="container">
 
     <h1>Rock • Paper • Scissors</h1>
-
+    
     <p class="subtitle">
         First player to reach 10 points wins the match.
     </p>
@@ -39,6 +41,15 @@
             <span id="computerScore">0</span>
         </div>
 
+    </div>
+    <div>
+        <div class="streak-box">
+            🔥Win Streak: <span id="streak">0</span>
+        </div>
+    </div>
+    <div class="stats">
+        <p>🎮Total Games: <span id="gamesPlayed">0</span></p>
+        <p>Win Rate: <span id="winRate">0%</span></p>
     </div>
 
     <div class="choices">
@@ -90,27 +101,30 @@
 <audio id="rockSound" src="sounds/rock.mp3"></audio>
 <audio id="paperSound" src="sounds/paper.mp3"></audio>
 <audio id="scissorsSound" src="sounds/scissors.mp3"></audio>
-<audio id="hoverSound" src="sounds/hover.mp3"></audio>
+
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-<script src="script.js"></script>
-
-</body>
 
 
 
 <footer>
   <div>
-    
-                 
       <br /> 
       <hr /> 
       <br /> 
       <h4 className="home-footer">Copyright © 2026 Nomthandazo</h4>
     </div>
-  </footer>
+</footer>
 
-  
+<audio id="winSound" src="sounds/win.mp3"></audio>
+<audio id="loseSound" src="sounds/lose.mp3"></audio>
+<audio id="rockSound" src="sounds/rock.mp3"></audio>
+<audio id="paperSound" src="sounds/paper.mp3"></audio>
+<audio id="scissorsSound" src="sounds/scissors.mp3"></audio>
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>

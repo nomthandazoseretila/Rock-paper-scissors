@@ -2,6 +2,8 @@ let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
 let gameOver = false;
+let gamesPlayed = 0;
+let streak = 0 
 
 const choices = ["rock","paper","scissors"];
 
@@ -9,7 +11,7 @@ const images = {
     rock:"images/rock.png",
     paper:"images/paper.png",
     scissors:"images/scissors.png"
-};
+}
 
 function playChoiceSound(choice) {
     if (choice === "rock") {
@@ -40,6 +42,7 @@ function playLoseSound() {
 function playGame(playerChoice){
     
     if(gameOver) return;
+    gamesPlayed++;
 
     const computerChoice =
     choices[Math.floor(Math.random() * 3)];
@@ -71,23 +74,34 @@ function playGame(playerChoice){
 
         result = "YOU WIN!";
         playerScore++;
-    
+        streak++;
 
         document.getElementById("playerScore").textContent =
         playerScore;
+        document.getElementById("streak").textContent =
+        streak;
+        
     }
 
     else{
 
         result = "COMPUTER WINS!";
         computerScore++;
+        streak = 0
  
         document.getElementById("computerScore").textContent =
         computerScore;
+        document.getElementById("streak").textContent =
+        streak;
+
     }
+      let winRate = gamesPlayed === 0 ? 0 :
+        Math.round((playerScore / gamesPlayed) * 100);
+        document.getElementById("winRate").textContent = winRate + "%";
 
     document.getElementById("resultText").textContent =
     result;
+    document.getElementById("gamesPlayed").textContent = gamesPlayed;
 
     if(playerScore >= 10){
             
@@ -95,9 +109,11 @@ function playGame(playerChoice){
             
         launchConfetti();
         document.getElementById("resultText").textContent =
-        "🏆 YOU ARE THE CHAMPION!";
-    
+        "🎉 YOU ARE THE CHAMPION! 🎉 ";
+        
+        
         disableGame();
+    
     }
 
     if(computerScore >= 10){
@@ -105,9 +121,9 @@ function playGame(playerChoice){
 
         document.getElementById("resultText").textContent =
         "💻 COMPUTER IS THE CHAMPION!";
-       
 
         disableGame();
+        
     }
 }
 
@@ -127,12 +143,25 @@ function disableGame(){
     document.querySelector(".choices").style.opacity = "0.7";
 }
 
+
+
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+    const btn = document.getElementById("themeBtn");
+    if (document.body.classList.contains("dark-mode")) {
+        btn.textContent = "☀️";
+    } else {
+        btn.textContent = "🌙";
+    }
+} 
+
 function newMatch(){
 
     playerScore = 0;
     computerScore = 0;
     ties = 0;
     gameOver = false;
+    streak = 0
 
     document.getElementById("playerScore").textContent = 0;
     document.getElementById("computerScore").textContent = 0;
@@ -147,6 +176,7 @@ function newMatch(){
     document.querySelector(".choices").style.pointerEvents = "auto";
     document.querySelector(".choices").style.opacity = "1";
 
-    
+
+    document.getElementById("streak").textContent = 0 ;
 
 }
